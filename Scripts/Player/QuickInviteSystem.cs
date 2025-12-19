@@ -11,6 +11,7 @@ namespace Game.Scripts.Player
     /// </summary>
     public class QuickInviteSystem
     {
+        private static readonly Random random = new Random();
         private List<Friend> friendList = new List<Friend>();
         private List<Player> recentPlayers = new List<Player>();
         private Dictionary<int, Invitation> pendingInvitations = new Dictionary<int, Invitation>();
@@ -184,7 +185,7 @@ namespace Game.Scripts.Player
         /// </summary>
         private int GenerateInvitationId()
         {
-            return new Random().Next(10000, 99999);
+            return Math.Abs(Guid.NewGuid().GetHashCode());
         }
 
         /// <summary>

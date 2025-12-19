@@ -10,7 +10,7 @@ namespace Game.Tests
     /// 综合测试运行器
     /// 运行所有测试并生成完整报告
     /// </summary>
-    class TestRunner
+    public class TestRunner
     {
         static async Task Main(string[] args)
         {

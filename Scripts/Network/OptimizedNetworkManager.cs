@@ -18,6 +18,7 @@ namespace Game.Scripts.Network
         private bool isConnected = false;
         private int reconnectAttempts = 0;
         private DateTime lastHeartbeat;
+        private DateTime lastHeartbeatReceived;
         
         public bool IsConnected => isConnected;
         public event Action OnConnected;
@@ -39,6 +40,7 @@ namespace Game.Scripts.Network
                 isConnected = true;
                 reconnectAttempts = 0;
                 lastHeartbeat = DateTime.Now;
+                lastHeartbeatReceived = DateTime.Now;
                 
                 OnConnected?.Invoke();
                 
@@ -163,11 +165,17 @@ namespace Game.Scripts.Network
                     
                     lastHeartbeat = DateTime.Now;
                     
-                    // 检查超时
-                    if ((DateTime.Now - lastHeartbeat).TotalMilliseconds > CONNECTION_TIMEOUT_MS)
+                    // 检查是否收到服务器响应（模拟收到响应）
+                    // 在实际实现中，应该在收到服务器心跳响应时更新 lastHeartbeatReceived
+                    if ((DateTime.Now - lastHeartbeatReceived).TotalMilliseconds > CONNECTION_TIMEOUT_MS)
                     {
                         Console.WriteLine("连接超时，触发重连");
                         Disconnect();
+                    }
+                    else
+                    {
+                        // 模拟收到心跳响应
+                        lastHeartbeatReceived = DateTime.Now;
                     }
                 }
             }
