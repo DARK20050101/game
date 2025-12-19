@@ -1,0 +1,38 @@
+{
+  "network": {
+    "maxConcurrentUsers": 200,
+    "targetLatencyMs": 200,
+    "minReconnectRate": 0.95,
+    "heartbeatIntervalMs": 5000,
+    "connectionTimeoutMs": 10000,
+    "enableCompression": true,
+    "enablePrediction": true
+  },
+  "balance": {
+    "baseDropRate": 0.10,
+    "duoDropMultiplier": 1.5,
+    "duoExpBonus": 0.25,
+    "cooperationBuffDistance": 5,
+    "damageBuffMultiplier": 1.15,
+    "defenseBuffMultiplier": 1.10,
+    "speedBuffMultiplier": 1.05,
+    "expBuffMultiplier": 1.25
+  },
+  "experience": {
+    "maxInviteSteps": 1,
+    "maxAcceptSteps": 1,
+    "maxJoinSteps": 2,
+    "targetResponseTimeMs": 200,
+    "enableQuickInvite": true,
+    "enableRecentPlayers": true,
+    "maxRecentPlayers": 20
+  },
+  "testing": {
+    "enableStressTest": true,
+    "enableBalanceTest": true,
+    "enableExperienceTest": true,
+    "stressTestDurationSeconds": 300,
+    "balanceTestIterations": 1000,
+    "autoReportGeneration": true
+  }
+}
