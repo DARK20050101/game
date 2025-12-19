@@ -73,7 +73,7 @@ public class WorldNetworkSync : MonoBehaviourPun
         mapSeed = seed;
         Debug.Log($"Received map seed: {seed}");
         
-        // Trigger map generation with this seed
+        // TODO: Integrate with MapGenerator when implemented
         // MapGenerator.Instance?.GenerateMap(seed);
     }
 

@@ -200,7 +200,8 @@ public class CloudDataManager : MonoBehaviourPunCallbacks
         
         Debug.Log($"Achievement unlocked: {achievementName}");
         
-        // TODO: Trigger achievement notification UI
+        // TODO: Issue #TBD - Implement achievement notification UI
+        // This should display a popup/toast notification to the player
     }
 
     /// <summary>

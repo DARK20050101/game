@@ -146,14 +146,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             return;
         }
 
-        // Filter rooms by player level
-        ExitGames.Client.Photon.Hashtable expectedProperties = new ExitGames.Client.Photon.Hashtable
-        {
-            // Find rooms where player level is within tolerance
-        };
-
+        // Note: Photon's JoinRandomRoom with expectedProperties only supports exact matches.
+        // For range-based filtering (level ±tolerance), we rely on SQL-like lobby filters
+        // or implement custom matchmaking. For now, we join any available room and
+        // future iterations will add server-side level validation.
+        
         Debug.Log($"Searching for room (Player Level: {playerLevel} ±{levelDifferenceTolerance})...");
-        PhotonNetwork.JoinRandomRoom(expectedProperties, maxPlayersPerRoom);
+        // Pass null for expectedProperties to join any available room
+        // Custom properties (minLevel, maxLevel) are stored but filtering requires SQL lobby
+        PhotonNetwork.JoinRandomRoom(null, maxPlayersPerRoom);
     }
 
     /// <summary>

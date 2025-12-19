@@ -310,14 +310,29 @@ public class DataManager : MonoBehaviour
         // Apply audio settings
         AudioListener.volume = currentSettings.masterVolume;
         
-        // Apply graphics settings
-        Screen.SetResolution(
-            currentSettings.resolutionWidth,
-            currentSettings.resolutionHeight,
-            currentSettings.fullscreen
-        );
+        // Apply graphics settings with validation
+        int width = Mathf.Clamp(currentSettings.resolutionWidth, 640, 7680);
+        int height = Mathf.Clamp(currentSettings.resolutionHeight, 480, 4320);
         
-        Application.targetFrameRate = currentSettings.targetFrameRate;
+        // Validate aspect ratio is reasonable (between 4:3 and 21:9)
+        float aspectRatio = (float)width / height;
+        if (aspectRatio < 1.0f || aspectRatio > 3.5f)
+        {
+            Debug.LogWarning($"Invalid aspect ratio {aspectRatio:F2}, falling back to 16:9");
+            width = 1920;
+            height = 1080;
+        }
+        
+        try
+        {
+            Screen.SetResolution(width, height, currentSettings.fullscreen);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Failed to set resolution: {e.Message}. Using current resolution.");
+        }
+        
+        Application.targetFrameRate = Mathf.Clamp(currentSettings.targetFrameRate, 30, 240);
     }
     #endregion
 
