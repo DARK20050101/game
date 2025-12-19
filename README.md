@@ -48,12 +48,52 @@
 - **平衡性**: 双人掉率 = 单人 x 1.5
 - **体验**: 极简联机邀请流程
 
+#### ✅ 测试框架已实现
+- [x] **网络压力测试**: 200人并发, 延迟≤200ms, 断线重连≥95%
+- [x] **平衡性测试**: 副本/掉落、协作Buff、组队奖励
+- [x] **体验优化测试**: 操作流简化、一键邀请、快速响应
+
+**快速开始测试**:
+```bash
+# 运行完整测试套件
+./run_tests.sh
+
+# 或使用 .NET CLI
+dotnet run --project Tests/Tests.csproj
+```
+
+📚 [查看详细文档](Documentation/TESTING_OPTIMIZATION.md) | [快速开始指南](Documentation/QUICKSTART_CN.md)
+
 ---
 
-## 📂 目录结构 (建议)
+## 📂 目录结构
 
 ```
-/Assets
+/Tests                              # 测试框架 ✨ NEW
+  /StressTests
+    └── NetworkStressTest.cs        # 网络压力测试
+  /BalanceTests
+    └── GameBalanceTest.cs          # 平衡性测试
+  /ExperienceTests
+    └── UserExperienceTest.cs       # 用户体验测试
+  └── TestRunner.cs                 # 测试运行器
+
+/Scripts                            # 游戏脚本 ✨ NEW
+  /Network
+    └── OptimizedNetworkManager.cs  # 优化的网络管理器
+  /Player
+    └── QuickInviteSystem.cs        # 一键邀请系统
+  /Game
+    └── CooperationBuffSystem.cs    # 协作Buff系统
+
+/Config                             # 配置文件 ✨ NEW
+  └── game_config.json              # 游戏配置
+
+/Documentation                      # 文档 ✨ NEW
+  ├── TESTING_OPTIMIZATION.md       # 测试优化详细文档
+  └── QUICKSTART_CN.md              # 快速开始指南
+
+/Assets                             # Unity 资源 (规划中)
   /Scripts
     /Network (Photon Manager)
     /Player (Controller, Stats)

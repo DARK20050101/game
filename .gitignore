@@ -1,0 +1,66 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Files built by Visual Studio
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+**/packages/*
+*.nuget.props
+*.nuget.targets
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# .NET specific
+*.AssemblyInfo.cs
+*.AssemblyInfoInputs.cache
+*.assets.cache
+*.csproj.*.cache
+*.deps.json
+*.runtimeconfig.json
+*.genruntimeconfig.cache
+*.sourcelink.json
+
+# OS specific
+.DS_Store
+Thumbs.db
