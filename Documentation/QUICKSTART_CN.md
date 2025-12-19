@@ -19,7 +19,7 @@ git clone https://github.com/DARK20050101/game.git
 cd game
 
 # 运行完整测试套件
-dotnet run --project Tests/TestRunner.cs
+dotnet run --project Tests/Tests.csproj
 ```
 
 ### 3. 查看测试结果
@@ -234,11 +234,15 @@ A: 修改 `Config/game_config.json` 中的 `baseDropRate` 和 `duoDropMultiplier
 
 ### Q: 如何测试单个系统？
 
-A: 直接实例化并运行对应的测试类：
+A: 直接实例化并运行对应的测试类，或使用.NET测试过滤器：
 
 ```csharp
+// 方式1: 创建简单的测试程序
 var stressTest = new NetworkStressTest();
 var result = await stressTest.RunStressTest();
+
+// 方式2: 使用dotnet test（需要配置测试项目）
+dotnet test Tests/Tests.csproj --filter "Category=StressTest"
 ```
 
 ## 性能优化建议

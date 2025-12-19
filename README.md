@@ -59,7 +59,7 @@
 ./run_tests.sh
 
 # 或使用 .NET CLI
-dotnet run --project Tests/TestRunner.cs
+dotnet run --project Tests/Tests.csproj
 ```
 
 📚 [查看详细文档](Documentation/TESTING_OPTIMIZATION.md) | [快速开始指南](Documentation/QUICKSTART_CN.md)

@@ -34,10 +34,10 @@ run_full_tests() {
     echo -e "${YELLOW}运行完整测试套件...${NC}"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
-    if [ -f "Tests/TestRunner.cs" ]; then
-        dotnet run --project Tests/TestRunner.cs
+    if [ -f "Tests/Tests.csproj" ]; then
+        dotnet run --project Tests/Tests.csproj
     else
-        echo -e "${RED}错误: 找不到 TestRunner.cs${NC}"
+        echo -e "${RED}错误: 找不到 Tests.csproj${NC}"
         return 1
     fi
 }

@@ -198,7 +198,7 @@ await QuickInviteMultiple(friendIds);
 ```bash
 # 使用 .NET CLI
 cd /home/runner/work/game/game
-dotnet run --project Tests/TestRunner.cs
+dotnet run --project Tests/Tests.csproj
 ```
 
 ### 使用 Unity

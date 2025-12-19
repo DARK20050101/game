@@ -152,10 +152,10 @@
 ./run_tests.sh
 
 # 方式2: 直接运行测试
-dotnet run --project Tests/TestRunner.cs
+dotnet run --project Tests/Tests.csproj
 
-# 方式3: 运行特定测试
-dotnet test --filter "Category=StressTest"
+# 方式3: 运行特定测试（需配置测试框架）
+dotnet test Tests/Tests.csproj --filter "Category=StressTest"
 ```
 
 ### 查看报告
