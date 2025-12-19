@@ -1,0 +1,288 @@
+// Example Unity Scene Setup Configuration
+// This JSON file demonstrates how to configure the pixel art systems
+
+{
+  "sceneConfiguration": {
+    "sceneName": "MainGameLevel",
+    "pixelPerfectCamera": {
+      "assetsPixelsPerUnit": 32,
+      "refResolutionX": 640,
+      "refResolutionY": 360,
+      "upscaleRT": true,
+      "pixelSnapping": true,
+      "cropFrameX": false,
+      "cropFrameY": false,
+      "stretchFill": false
+    }
+  },
+
+  "characterAnimations": {
+    "warrior": {
+      "className": "Warrior",
+      "spriteSheetPath": "Assets/Sprites/Characters/Warrior/",
+      "animations": {
+        "idle": {
+          "frames": ["warrior_idle_01", "warrior_idle_02", "warrior_idle_03", "warrior_idle_04", "warrior_idle_05", "warrior_idle_06"],
+          "frameRate": 8,
+          "loop": true
+        },
+        "walk": {
+          "frames": ["warrior_walk_01", "warrior_walk_02", "warrior_walk_03", "warrior_walk_04", "warrior_walk_05", "warrior_walk_06", "warrior_walk_07", "warrior_walk_08"],
+          "frameRate": 12,
+          "loop": true
+        },
+        "run": {
+          "frames": ["warrior_run_01", "warrior_run_02", "warrior_run_03", "warrior_run_04", "warrior_run_05", "warrior_run_06", "warrior_run_07", "warrior_run_08"],
+          "frameRate": 16,
+          "loop": true
+        },
+        "attack": {
+          "frames": ["warrior_attack_01", "warrior_attack_02", "warrior_attack_03", "warrior_attack_04", "warrior_attack_05", "warrior_attack_06"],
+          "frameRate": 16,
+          "loop": false,
+          "hitFrame": 3
+        },
+        "skill": {
+          "frames": ["warrior_skill_01", "warrior_skill_02", "warrior_skill_03", "warrior_skill_04", "warrior_skill_05", "warrior_skill_06", "warrior_skill_07", "warrior_skill_08"],
+          "frameRate": 14,
+          "loop": false,
+          "particleEffect": "WarriorSpinSlash"
+        },
+        "hit": {
+          "frames": ["warrior_hit_01", "warrior_hit_02", "warrior_hit_03", "warrior_hit_04"],
+          "frameRate": 16,
+          "loop": false
+        },
+        "death": {
+          "frames": ["warrior_death_01", "warrior_death_02", "warrior_death_03", "warrior_death_04", "warrior_death_05", "warrior_death_06", "warrior_death_07", "warrior_death_08"],
+          "frameRate": 10,
+          "loop": false
+        },
+        "interact": {
+          "frames": ["warrior_interact_01", "warrior_interact_02", "warrior_interact_03", "warrior_interact_04", "warrior_interact_05", "warrior_interact_06"],
+          "frameRate": 12,
+          "loop": false
+        }
+      }
+    },
+    
+    "mage": {
+      "className": "Mage",
+      "spriteSheetPath": "Assets/Sprites/Characters/Mage/",
+      "animations": {
+        "idle": {
+          "frames": ["mage_idle_01", "mage_idle_02", "mage_idle_03", "mage_idle_04", "mage_idle_05", "mage_idle_06"],
+          "frameRate": 8,
+          "loop": true
+        },
+        "walk": {
+          "frames": ["mage_walk_01", "mage_walk_02", "mage_walk_03", "mage_walk_04", "mage_walk_05", "mage_walk_06", "mage_walk_07", "mage_walk_08"],
+          "frameRate": 12,
+          "loop": true
+        },
+        "run": {
+          "frames": ["mage_run_01", "mage_run_02", "mage_run_03", "mage_run_04", "mage_run_05", "mage_run_06", "mage_run_07", "mage_run_08"],
+          "frameRate": 16,
+          "loop": true
+        },
+        "attack": {
+          "frames": ["mage_attack_01", "mage_attack_02", "mage_attack_03", "mage_attack_04", "mage_attack_05", "mage_attack_06"],
+          "frameRate": 12,
+          "loop": false,
+          "castFrame": 4
+        },
+        "skill": {
+          "frames": ["mage_skill_01", "mage_skill_02", "mage_skill_03", "mage_skill_04", "mage_skill_05", "mage_skill_06", "mage_skill_07", "mage_skill_08"],
+          "frameRate": 14,
+          "loop": false,
+          "particleEffect": "MageSpellParticles",
+          "particleConfig": {
+            "startColor": [100, 150, 255, 255],
+            "endColor": [180, 100, 255, 255],
+            "startSize": 2,
+            "endSize": 4,
+            "emissionRate": 30,
+            "lifetime": 1.0,
+            "startFrame": 2,
+            "endFrame": 6,
+            "emissionShape": "cone",
+            "velocity": 5.0
+          }
+        },
+        "hit": {
+          "frames": ["mage_hit_01", "mage_hit_02", "mage_hit_03", "mage_hit_04"],
+          "frameRate": 16,
+          "loop": false
+        },
+        "death": {
+          "frames": ["mage_death_01", "mage_death_02", "mage_death_03", "mage_death_04", "mage_death_05", "mage_death_06", "mage_death_07", "mage_death_08"],
+          "frameRate": 10,
+          "loop": false
+        },
+        "interact": {
+          "frames": ["mage_interact_01", "mage_interact_02", "mage_interact_03", "mage_interact_04", "mage_interact_05", "mage_interact_06"],
+          "frameRate": 12,
+          "loop": false
+        }
+      }
+    }
+  },
+
+  "uiConfiguration": {
+    "teammateHealthBar": {
+      "maxHearts": 10,
+      "heartSpacing": 8,
+      "healthPerHeart": 10,
+      "colors": {
+        "healthy": [255, 76, 76, 255],
+        "lowHealth": [128, 128, 128, 255]
+      },
+      "sprites": {
+        "fullHeart": "Assets/Sprites/UI/heart_full.png",
+        "halfHeart": "Assets/Sprites/UI/heart_half.png",
+        "emptyHeart": "Assets/Sprites/UI/heart_empty.png"
+      },
+      "flashOnDamage": true,
+      "flashDuration": 0.2
+    },
+
+    "walkieTalkieButton": {
+      "position": {"x": -300, "y": -200},
+      "size": {"width": 64, "height": 64},
+      "sprites": {
+        "normal": "Assets/Sprites/UI/walkie_talkie_normal.png",
+        "pressed": "Assets/Sprites/UI/walkie_talkie_pressed.png",
+        "signalIndicator": "Assets/Sprites/UI/signal_indicator.png"
+      },
+      "colors": {
+        "talking": [100, 255, 100, 255],
+        "idle": [128, 128, 128, 255]
+      },
+      "pressScale": 0.9,
+      "audio": {
+        "pressSound": "Assets/Resources/Sounds/walkie_press.wav",
+        "releaseSound": "Assets/Resources/Sounds/walkie_release.wav",
+        "staticLoop": "Assets/Resources/Sounds/walkie_static_loop.wav",
+        "staticVolume": 0.3
+      },
+      "statusText": {
+        "idle": "按住说话 / HOLD TO TALK",
+        "talking": "通话中... / TALKING..."
+      }
+    }
+  },
+
+  "collaborationSystem": {
+    "activationRadius": 5.0,
+    "requiredPlayers": 2,
+    "highlightColor": [255, 215, 0, 255],
+    "pulseSpeed": 2.0,
+    "sprites": {
+      "rarePointIcon": "Assets/Sprites/Environment/rare_point_icon.png",
+      "highlightRing": "Assets/Sprites/Environment/collaboration_highlight.png"
+    },
+    "particleEffect": {
+      "color": [255, 215, 0, 180],
+      "emissionRate": 20,
+      "lifetime": 2.0,
+      "speed": 2.0
+    },
+    "collaborationPoints": [
+      {
+        "id": "rare_chest_01",
+        "position": {"x": 100, "y": 50, "z": 0},
+        "requiredPlayers": 2,
+        "promptText": "需要2名玩家协作开启 / 2 Players Required"
+      },
+      {
+        "id": "boss_gate",
+        "position": {"x": 200, "y": 100, "z": 0},
+        "requiredPlayers": 2,
+        "promptText": "Boss大门需要协作开启 / Boss Gate Requires Cooperation"
+      }
+    ]
+  },
+
+  "buildingUpgradeSystem": {
+    "upgradeDuration": 1.0,
+    "constructionColor": [255, 204, 0, 255],
+    "audio": {
+      "upgradeSound": "Assets/Resources/Sounds/upgrade_sound.wav"
+    },
+    "buildings": [
+      {
+        "buildingName": "MainHouse",
+        "currentLevel": 0,
+        "maxLevel": 3,
+        "levels": [
+          {
+            "level": 0,
+            "sprite": "Assets/Sprites/Environment/Buildings/house_level1.png",
+            "levelName": "木质小屋 / Wooden Hut",
+            "tintColor": [255, 255, 255, 255]
+          },
+          {
+            "level": 1,
+            "sprite": "Assets/Sprites/Environment/Buildings/house_level2.png",
+            "levelName": "石材房屋 / Stone House",
+            "tintColor": [255, 255, 255, 255]
+          },
+          {
+            "level": 2,
+            "sprite": "Assets/Sprites/Environment/Buildings/house_level3.png",
+            "levelName": "精致宅邸 / Fine Mansion",
+            "tintColor": [255, 255, 255, 255]
+          }
+        ]
+      }
+    ]
+  },
+
+  "multiplayerSettings": {
+    "photonPUN": {
+      "appId": "YOUR_PHOTON_APP_ID",
+      "region": "asia",
+      "maxPlayers": 2
+    },
+    "playerIdentification": {
+      "selfOutlineColor": [255, 255, 255, 255],
+      "teammateOutlineColor": [100, 255, 100, 255],
+      "otherPlayerOutlineColor": [255, 255, 255, 0],
+      "outlineWidth": 2
+    },
+    "distanceBuff": {
+      "activationDistance": 5.0,
+      "auraColor": [255, 215, 0, 180],
+      "pulseSpeed": 1.5,
+      "buffIconPath": "Assets/Sprites/UI/buff_collaboration.png"
+    }
+  },
+
+  "pixelArtSettings": {
+    "globalPixelsPerUnit": 32,
+    "filterMode": "Point",
+    "compressionQuality": "None",
+    "generateMipMaps": false,
+    "maxSize": 256,
+    "colorPalette": {
+      "primary": {
+        "red": [255, 76, 76],
+        "gold": [255, 215, 0],
+        "green": [100, 255, 100],
+        "blue": [100, 150, 255]
+      },
+      "secondary": {
+        "darkRed": [180, 50, 50],
+        "darkGold": [200, 170, 0],
+        "darkGreen": [50, 200, 50],
+        "darkBlue": [50, 100, 200]
+      },
+      "neutral": {
+        "lightGray": [180, 180, 180],
+        "darkGray": [100, 100, 100],
+        "white": [240, 240, 240],
+        "black": [50, 50, 50]
+      }
+    }
+  }
+}
